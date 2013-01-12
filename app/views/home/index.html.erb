@@ -1,2 +1,7 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Query</h1>
+<%= button_tag "Run Query", :id => "run_query" %>
+
+<%= text_area_tag "query", nil, :rows => 20, :class => "span12", :id => "query" %>
+
+<h1>Result</h1>
+<%= text_area_tag "result", nil, :rows => 20, :class => "span12", :id => "result" %>
