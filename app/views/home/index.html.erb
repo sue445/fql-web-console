@@ -1,4 +1,10 @@
 <h1>Query</h1>
+<div class="btn-group" data-toggle="buttons-radio" id="format-radio-group">
+  <button type="button" class="btn btn-primary active" value="json">JSON</button>
+  <button type="button" class="btn btn-primary" value="xml">XML</button>
+  <button type="button" class="btn btn-primary" value="csv">CSV</button>
+</div>
+
 <%= button_tag "Run Query", :id => "run_query" %>
 
 <%= text_area_tag "query", nil, :rows => 20, :class => "span12", :id => "query" %>
