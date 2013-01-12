@@ -79,3 +79,7 @@ end
 
 gem "fb_graph", "~> 2.6.0"
 gem "rinku", "~> 1.7.2"
+
+group :production do
+  gem 'unicorn'
+end
