@@ -2,20 +2,24 @@
     $(document).ready(function(){
         $("#run_query").click(function(){
             var format = get_radio_value("format-radio-group");
+
+            var dataType = format;
+            if(format == "csv"){
+                dataType = "html";
+            }
+
             $.ajax({
                 url: "/home/run_query." + format,
                 type: "POST",
-                dataType: "json",
+                dataType: dataType,
                 data: {
                     query:$("#query").val(),
                 }
             }).done(function(res){
-                    $("#result").removeClass("success");
-                    $("#result").removeClass("error");
-                    $("#result").addClass(res.status);
-
                     if(format == "json"){
-                        $("#result").val( JSON.stringify(res.result) );
+                        $("#result").val( JSON.stringify(res) );
+                    } else if(format == "csv"){
+                        $("#result").val( res );
                     }
                 });
         });

@@ -3,24 +3,37 @@ class HomeController < ApplicationController
   end
 
   def run_query
-    fql_result = Fql.run_query(params[:query])
-    @res = {
-        :status => "success",
-        :result => fql_result,
-    }
+    @res = Fql.run_query(params[:query])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render :json => @res }
+      format.csv {
+        csv_data = ""
+        if @res.length > 0
+          @res[0].each do |key, value|
+            csv_data += key.to_s
+            csv_data += ","
+          end
+          csv_data += "\n"
+        end
+        @res.each do |row|
+          row.each do |key, value|
+            csv_data += value.to_s
+            csv_data += ","
+          end
+          csv_data += "\n"
+        end
+        render :text => csv_data
+      }
     end
   rescue => e
-    res = {
-        :status => "error",
-        :result => e.inspect,
-    }
+    @res = e.inspect
+
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => res }
+      format.html
+      format.json { render :json => @res }
+      format.csv  { render :text => @res }
     end
   end
 end
