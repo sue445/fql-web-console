@@ -14,5 +14,10 @@ describe ApplicationHelper, :type => :helper  do
       it { should == %{drecom <a href="http://www.drecom.co.jp">http://www.drecom.co.jp</a>} }
     end
 
+    context "image" do
+      let(:text) { "drecom http://www.drecom.co.jp/shared/img/logo.png" }
+      it { should == "drecom #{image_tag "http://www.drecom.co.jp/shared/img/logo.png"}" }
+    end
+
   end
 end
