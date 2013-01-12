@@ -31,7 +31,11 @@
                         $("#result-plain").val( res );
                     } else if(format == "html"){
                         $("#result-dom").empty();
-                        $("#result-dom").append( $(res) );
+                        try{
+                            $("#result-dom").append( $(res) );
+                        } catch(e){
+                            $("#result-dom").append( $("<div>").text(res) );
+                        }
                     }
                 });
         });
