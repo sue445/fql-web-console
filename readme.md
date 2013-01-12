@@ -3,6 +3,7 @@
 ```sh
 heroku create
 ```
+
 2. create [Facebook app](https://developers.facebook.com/apps)
 3. set facebook app info
 ```sh
