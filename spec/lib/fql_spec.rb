@@ -12,11 +12,6 @@ describe Fql do
      WHERE username = 'sue445'
       FQL
 
-      p res
-      p ENV["FB_ACCESS_TOKEN"]
-      p ENV["FB_APP_KEY"]
-      p ENV["FB_APP_SECRET"]
-
       res.length.should == 1
     end
   end
