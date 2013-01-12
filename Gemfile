@@ -78,3 +78,4 @@ group :assets do
 end
 
 gem "fb_graph", "~> 2.6.0"
+gem "rinku", "~> 1.7.2"
