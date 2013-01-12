@@ -1,5 +1,5 @@
 module ApplicationHelper
   def parse_link(text)
-    text
+    Rinku.auto_link(text)
   end
 end
