@@ -1,6 +1,6 @@
 module ApplicationHelper
   def parse_link(text)
-    text = text.gsub(/(http.+?)\.(png|jpg|jpeg)/) do |str|
+    text = text.to_s.gsub(/(http.+?)\.(png|jpg|jpeg)/) do |str|
       image_tag(str)
     end
     skip_tags = ["a", "pre", "code", "kbd", "script", "img"]

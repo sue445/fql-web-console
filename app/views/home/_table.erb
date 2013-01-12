@@ -11,7 +11,7 @@
         <% @res.each do |row| %>
             <tr>
               <% row.each do |key, value| %>
-                <td><%= parse_link value %></td>
+                <td><%= raw parse_link value %></td>
               <% end %>
             </tr>
         <% end %>
