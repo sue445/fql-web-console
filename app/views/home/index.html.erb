@@ -2,6 +2,7 @@
 <div class="btn-group" data-toggle="buttons-radio" id="format-radio-group">
   <button type="button" class="btn active" value="json">JSON</button>
   <button type="button" class="btn" value="csv">CSV</button>
+  <button type="button" class="btn" value="html">HTML</button>
 </div>
 
 <%= button_tag "Run Query", :id => "run_query", :class => "btn btn-primary" %>
@@ -9,4 +10,6 @@
 <%= text_area_tag "query", nil, :rows => 20, :class => "span12", :id => "query" %>
 
 <h1>Result</h1>
-<%= text_area_tag "result", nil, :rows => 20, :class => "span12", :id => "result" %>
+<%= text_area_tag "result-plain", nil, :rows => 20, :class => "span12", :id => "result-plain" %>
+<div id="result-dom" style="display: none;">
+</div>

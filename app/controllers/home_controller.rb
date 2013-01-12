@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @res = Fql.run_query(params[:query])
 
     respond_to do |format|
-      format.html
+      format.html { render :partial => "home/table"}
       format.json { render :json => @res }
       format.csv {
         csv_data = ""
@@ -31,7 +31,7 @@ class HomeController < ApplicationController
     @res = e.inspect
 
     respond_to do |format|
-      format.html
+      format.html { render :text => @res }
       format.json { render :json => @res }
       format.csv  { render :text => @res }
     end

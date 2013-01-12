@@ -5,7 +5,7 @@
 
             var dataType = format;
             if(format == "csv"){
-                dataType = "html";
+                dataType = "text";
             }
 
             $.ajax({
@@ -16,10 +16,22 @@
                     query:$("#query").val(),
                 }
             }).done(function(res){
+                    $("#result-plain").hide();
+                    $("#result-dom").hide();
+
+                    if(format == "html"){
+                        $("#result-dom").show();
+                    } else{
+                        $("#result-plain").show();
+                    }
+
                     if(format == "json"){
-                        $("#result").val( JSON.stringify(res) );
+                        $("#result-plain").val( JSON.stringify(res) );
                     } else if(format == "csv"){
-                        $("#result").val( res );
+                        $("#result-plain").val( res );
+                    } else if(format == "html"){
+                        $("#result-dom").empty();
+                        $("#result-dom").append( $(res) );
                     }
                 });
         });
